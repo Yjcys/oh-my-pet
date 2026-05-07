@@ -1,0 +1,14 @@
+# OS/editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.log
+
+# Local-only scratch outputs
+pet-runs/**/tmp/
+
+# Python/cache folders, if helper scripts are added later
+__pycache__/
+*.py[cod]
+.pytest_cache/
