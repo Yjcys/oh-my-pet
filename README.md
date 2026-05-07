@@ -2,12 +2,29 @@
 
 Codex custom pet experiments, packaged as transparent animated spritesheets.
 
+> Ready-to-install packages live in `pets/`. The longer `pet-runs/` folders keep
+> generation artifacts, prompts, QA contact sheets, and preview videos.
+
 This repo currently contains two pets:
 
-| Pet | Description | Final spritesheet | QA sheet |
+| Pet | Description | Install package | QA sheet |
 | --- | --- | --- | --- |
-| Mossy | A slim green alien cat inspired by animated sticker references. | `pet-runs/mossy/run/final/spritesheet.webp` | `pet-runs/mossy/run/qa/contact-sheet.png` |
-| Capy | An emotionally stable capybara with a tiny orange on its head. | `pet-runs/capy/final/spritesheet.webp` | `pet-runs/capy/qa/contact-sheet.png` |
+| Capy | An emotionally stable capybara with a tiny orange on its head. | `pets/capy/` | `pet-runs/capy/qa/contact-sheet.png` |
+| Mossy | A slim green alien cat inspired by animated sticker references. | `pets/mossy/` | `pet-runs/mossy/run/qa/contact-sheet.png` |
+
+## Quick Install
+
+Copy one package folder from `pets/` into your Codex pets directory:
+
+```powershell
+$repo = "C:\path\to\oh-my-pet"
+$codexPets = Join-Path $env:USERPROFILE ".codex\pets"
+
+Copy-Item "$repo\pets\capy" "$codexPets\capy" -Recurse -Force
+Copy-Item "$repo\pets\mossy" "$codexPets\mossy" -Recurse -Force
+```
+
+Then open Codex settings and choose the custom pet.
 
 ## Capy
 
@@ -41,7 +58,8 @@ remove those references if needed.
 
 Each pet is a `pet.json` manifest plus a transparent `spritesheet.webp`.
 
-For Capy on Windows:
+The easiest path is to copy from `pets/`. If you want to rebuild the package
+from the generation output, use this pattern for Capy on Windows:
 
 ```powershell
 $petDir = Join-Path $env:USERPROFILE ".codex\pets\capy"
@@ -63,10 +81,16 @@ Copy-Item "pet-runs\capy\final\spritesheet.webp" `
 For Mossy, use the same pattern with `mossy` and
 `pet-runs\mossy\run\final\spritesheet.webp`.
 
+## GitHub About
+
+The right-side GitHub **About** panel is repository metadata. It is not stored in
+README. Suggested values are in `docs/github-about.md`.
+
 ## Project Layout
 
 ```text
 media/                         source/reference media
+pets/                          ready-to-install Codex pet packages
 pet-runs/
   capy/
     decoded/                   selected generated row strips
