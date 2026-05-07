@@ -84,7 +84,11 @@ For Mossy, use the same pattern with `mossy` and
 ## GitHub About
 
 The right-side GitHub **About** panel is repository metadata. It is not stored in
-README. Suggested values are in `docs/github-about.md`.
+README. Suggested description:
+
+```text
+Codex custom desktop pets: animated spritesheets for Capy the capybara and Mossy the alien cat.
+```
 
 ## Project Layout
 
